@@ -1,8 +1,23 @@
 body {
-    background-color: #cdd2dd;
+    background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1483b47a-8ae7-4166-b0f4-f5474877425b/d6e0n45-73a1ccc2-da75-4ac5-8844-6cef4dc9b773.jpg/v1/fill/w_774,h_1033,q_70,strp/some_dbz_inspired_background_by_sirgryphon_d6e0n45-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTM2NiIsInBhdGgiOiJcL2ZcLzE0ODNiNDdhLThhZTctNDE2Ni1iMGY0LWY1NDc0ODc3NDI1YlwvZDZlMG40NS03M2ExY2NjMi1kYTc1LTRhYzUtODg0NC02Y2VmNGRjOWI3NzMuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.pHC3Wh4w8MNMZRoFFa_9tWt7YFjs0-yrYdlaUJ0hsJ4");
+    background-repeat: repeat-y;
+    background-size: 100%;
 }
-
+ .button-color {
+     background-color: #F85B1A;
+     border: none;  
+ }
+.container-background {
+    background-color: #FFD7C1;
+}
 
 .margin-control {
     margin-top: 100px;
+}
+.marginSpace{
+    margin-top: 10px;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
 }
