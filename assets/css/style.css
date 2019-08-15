@@ -3,6 +3,15 @@ body {
     background-repeat: repeat-y;
     background-size: 100%;
 }
+h1 {
+    font-family: 'Libre Caslon Display', serif;
+
+}
+
+h4 {
+    font-family: 'Red Hat Display', sans-serif;
+
+}
  .button-color {
      background-color: #F85B1A;
      border: none;  
