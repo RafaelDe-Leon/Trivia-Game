@@ -1,51 +1,74 @@
-// You'll create a trivia form with multiple choice or true/false options (your choice).
+//test to see if document link is working
+console.log(quizQuestions);
 
-// * The player will have a limited amount of time to finish the quiz. 
+var counter = 60; // var that holds our counter
+var timer; // holds the timer for the game
+var currenQuestion = 0;
+var score = 0; //score var
+var lost = 0; //lost var
 
-//   * The game ends when the time runs out. The page will reveal the number of questions that players answer correctly and incorrectly.
+function loadQuestion() {
+  var question = quizQuestions[currenQuestion].question; //
+  var choices = quizQuestions[currenQuestion].choices; //
 
-// * Don't let the player pick more than one answer per question.
+  $("#time").html("Timer: " + counter);
+  //append to id game
+  $("#game").html(`
+    <h4> ${question} </h4>
+    ${loadChoices(choices)}
+    `);
+    
+}
 
-// * Don't forget to include a countdown timer.
+function loadChoices(choices) {
+    var result = "";
+
+    for (var i = 0; i < choices.length; i++) {
+        result += `<button class="choice button-color" data-answer="${choices[i]}">${choices[i]}</button>`;
+
+    }
+
+    return result;
+}
+
+loadQuestion();
 
 
- // var that holds our counter
-var counter = 60;
 
 
-// var that holds our interval id when we execute 
-var timerValid;
 
 // create a timer that when it ends it finishes the game and display win or lose
 
 function run() {
-    clearInterval(timerValid);
-    // timer set to minus 1 sec
-    timerValid = setInterval(decrement, 1000);
+  clearInterval(timer);
+  // timer set to minus 1 sec
+  timer = setInterval(decrement, 1000);
 }
 
 function decrement() {
+  // decrease the number by 1
+  counter--;
 
-    // decrease the number by 1
-    counter--
+  // show the number in the #show-numer id tag
+  $("#timer").html("<h2> Time Left: " + counter + "</h2>");
 
-    // show the number in the #show-numer id tag
-    $("#show-timer").html("<h2> Time Left: " + counter + "</h2>");
+  // testing
+  console.log("timer");
 
-// testing
-    console.log("timer");
-
-    if (counter === 0) {
-        stop();
-        alert("Time's up!");
-    }
+  if (counter === 0) {
+    stop();
+    alert("Time's up!");
+  }
 }
 
-// stop function 
+// click even for buttons
+
+//  $("button").
+
+// stop function
 function stop() {
-    clearInterval(timerValid);
+  clearInterval(timer);
 }
 
 //call run function
 run();
-

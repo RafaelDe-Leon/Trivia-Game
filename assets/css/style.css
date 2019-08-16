@@ -3,29 +3,44 @@ body {
     background-repeat: repeat-y;
     background-size: 100%;
 }
+
 h1 {
     font-family: 'Libre Caslon Display', serif;
-
+    font-size: 60px;
+    font-weight: bold;
 }
 
-h4 {
+h2, h4 {
     font-family: 'Red Hat Display', sans-serif;
-
 }
- .button-color {
-     background-color: #F85B1A;
-     border: none;  
- }
+
+/* .button-color {
+    background-color: #F85B1A;
+    border: none;
+    margin: 5px;
+} */
+.choice {
+    background-color: #F85B1A;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+}
+.choice:hover {
+    background-color: rgb(206, 135, 105);
+}
+
 .container-background {
     background-color: #FFD7C1;
 }
 
 .margin-control {
-    margin-top: 100px;
+    margin-top: 50px;
 }
-.marginSpace{
+
+.marginSpace {
     margin-top: 10px;
 }
+
 .center {
     margin-left: auto;
     margin-right: auto;
