@@ -1,74 +1,109 @@
 //test to see if document link is working
 console.log(quizQuestions);
-
-var counter = 60; // var that holds our counter
+var counter = 5; // var that holds our counter
 var timer; // holds the timer for the game
-var currenQuestion = 0;
+var currentQuestion = 0;
 var score = 0; //score var
 var lost = 0; //lost var
 
-function loadQuestion() {
-  var question = quizQuestions[currenQuestion].question; //
-  var choices = quizQuestions[currenQuestion].choices; //
+//========================================================================
+// if the timer is over go to the next question
+function nextQuestion() {
 
-  $("#time").html("Timer: " + counter);
+    var isQuestionOver = (quizQuestions.length -1) === currentQuestion;
+
+    if (isQuestionOver) {
+      console.log("Game is over");
+  } else {
+    currentQuestion++;
+    loadQuestion();
+  }
+}
+
+// when time is up clear timer and move to the next question and increase lost by 1
+function timeUp() {
+  clearInterval(timer);
+  lost++;
+  nextQuestion();
+}
+
+//start a 30 second timer for user to respond to each question
+
+function countDown() {
+  counter--;
+  $("#time").html("<h2> Time Left: " + counter + "</h2>");
+
+  if (counter === 0) {
+    timeUp();
+  }
+}
+
+// Display the questions and choices to the browser
+function loadQuestion() {
+  clearInterval(timer);
+  counter = 5;
+  timer = setInterval(countDown, 1000);
+
+  var question = quizQuestions[currentQuestion].question; //
+  var choices = quizQuestions[currentQuestion].choices; //
+
+  $("#time").html("<h2> Time Left: " + counter + "</h2>");
+
   //append to id game
   $("#game").html(`
     <h4> ${question} </h4>
     ${loadChoices(choices)}
     `);
-    
 }
 
+
+// load question function
 function loadChoices(choices) {
-    var result = "";
+  var result = "";
 
-    for (var i = 0; i < choices.length; i++) {
-        result += `<button class="choice button-color" data-answer="${choices[i]}">${choices[i]}</button>`;
+  for (var i = 0; i < choices.length; i++) {
+    result += `<button class="choice button-color" data-answer="${
+      choices[i]
+    }">${choices[i]}</button>`;
+  }
 
-    }
-
-    return result;
+  return result;
 }
+
+
 
 loadQuestion();
 
-
-
-
+//========================================================================
 
 // create a timer that when it ends it finishes the game and display win or lose
 
-function run() {
-  clearInterval(timer);
-  // timer set to minus 1 sec
-  timer = setInterval(decrement, 1000);
-}
+// function run() {
+//   clearInterval(timer);
+//   // timer set to minus 1 sec
+//   timer = setInterval(decrement, 1000);
+// }
 
-function decrement() {
-  // decrease the number by 1
-  counter--;
+// function decrement() {
+//   // decrease the number by 1
+//   counter--;
 
-  // show the number in the #show-numer id tag
-  $("#timer").html("<h2> Time Left: " + counter + "</h2>");
+//   // show the number in the #show-numer id tag
+//   $("#time").html("<h2> Time Left: " + counter + "</h2>");
 
-  // testing
-  console.log("timer");
+//   // testing
+//   console.log("timer");
 
-  if (counter === 0) {
-    stop();
-    alert("Time's up!");
-  }
-}
+//   if (counter === 0) {
+//     stop();
+//     alert("Time's up!");
+//   }
+// }
 
-// click even for buttons
+// // stop function
+// function stop() {
+//   clearInterval(timer);
+// }
 
-//  $("button").
-
-// stop function
-function stop() {
-  clearInterval(timer);
-}
-
-//call run function
-run();
+// //call run function
+// run();
