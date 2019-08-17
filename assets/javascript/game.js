@@ -1,6 +1,6 @@
 //test to see if document link is working
 console.log(quizQuestions);
-var counter = 5; // var that holds our counter
+var counter = 15; // var that holds our counter
 var timer; // holds the timer for the game
 var currentQuestion = 0;
 var score = 0; //score var
@@ -9,6 +9,7 @@ var lost = 0; //lost var
 //========================================================================
 // if the timer is over go to the next question
 function nextQuestion() {
+    clearInterval(timer);
   var isQuestionOver = quizQuestions.length - 1 === currentQuestion;
 
   if (isQuestionOver) {
@@ -24,8 +25,8 @@ function nextQuestion() {
 function timeUp() {
   clearInterval(timer);
   lost++;
-//   preloadImage("correctAnswer");
-  setTimeout(nextQuestion, 3 * 1000);
+  //   preloadImage("correctAnswer");
+  nextQuestion();
 }
 
 //start a 30 second timer for user to respond to each question
@@ -42,7 +43,7 @@ function countDown() {
 // Display the questions and choices to the browser
 function loadQuestion() {
   clearInterval(timer);
-  counter = 5;
+  counter = 15;
   timer = setInterval(countDown, 1000);
 
   var question = quizQuestions[currentQuestion].question; //
@@ -74,7 +75,7 @@ function loadChoices(choices) {
 // Either wrong and right answer selected, go to the next question
 
 $(document).on("click", ".choice", function() {
-//   clearInterval(timer);
+  //   clearInterval(timer);
   var selectedAnswer = $(this).attr("data-answer");
   var correctAnswer = quizQuestions[currentQuestion].correctAnswer;
   // check if working
@@ -83,12 +84,11 @@ $(document).on("click", ".choice", function() {
   if (correctAnswer === selectedAnswer) {
     console.log("yes");
     score++;
-    setTimeout(nextQuestion, 3 * 1000);
-
+    nextQuestion();
   } else {
     lost++;
     console.log("no");
-    setTimeout(nextQuestion, 3 * 1000);
+    nextQuestion();
   }
 });
 
@@ -152,8 +152,7 @@ function loadRemainingQuestions() {
 
 // starts the game when #start game is clicked
 $("#start").click(function() {
-    $("#start").remove();
-    $("#time").html(counter);
-    loadQuestion();
-
+  $("#start").remove();
+  $("#time").html(counter);
+  loadQuestion();
 });
