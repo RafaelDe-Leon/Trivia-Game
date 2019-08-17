@@ -70,6 +70,26 @@ function loadChoices(choices) {
   return result;
 }
 
+// Either wrong and right answer selected, go to the next question
+
+$(document).on("click", ".choice", function() {
+    clearInterval(timer);
+    var selectedAnswer = $(this).attr("data-answer");
+    var correctAnswer = quizQuestions[currentQuestion].correctAnswer;
+// check if working
+    // console.log("yes", selectedAnswer);
+
+    if (correctAnswer === selectedAnswer){
+        console.log("yes");
+        score++
+        nextQuestion();
+    } else {
+        lost++;
+        console.log("no");
+        nextQuestion();
+    }
+});
+
 
 
 loadQuestion();

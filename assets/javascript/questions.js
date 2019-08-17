@@ -97,7 +97,7 @@ var quizQuestions = [
       "How to Teleport Instantly",
       "How to perform a Kamehameha",
       "How to turn into a super saiyan"],
-    correctAnswer: "Chi Chi"
+    correctAnswer: "How to Fly"
   },
   {
       //question 10
