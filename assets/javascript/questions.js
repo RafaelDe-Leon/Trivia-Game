@@ -6,9 +6,10 @@ var quizQuestions = [
       choices: [
         "By making a wish with the Dragon Balls",
         "Via high speed vechicle",
-        "By traveling along snake",
+        "By traveling along snake road",
         "By teleporting there instantly"],
-      correctAnswer: "By traveling along snake"
+      correctAnswer: "By traveling along snake road",
+      image: "./assets/images/snakeroad.webp"
     },
     {
         //question 2
@@ -18,8 +19,9 @@ var quizQuestions = [
         "Z Sword",
         "Saiyan Hair",
         "Capsole Copr Medicine",
-        "Sensu Beans"],
-      correctAnswer: "Sensu Beans"
+        "Senzu Beans"],
+      correctAnswer: "Senzu Beans",
+      image: "./assets/images/senzubean.webp"
   
     },
     {
@@ -31,7 +33,8 @@ var quizQuestions = [
       "Super Saiyan 2",
       "Super Saiyan 3",
       "Super Saiyan 4"],
-    correctAnswer: "Super Saiyan 2"
+    correctAnswer: "Super Saiyan 2",
+    image: "./assets/images/vegetassj2.webp"
   },
   {
       //question 4
@@ -42,7 +45,8 @@ var quizQuestions = [
       "Bleeper",
       "Scouter",
       "Gauger"],
-    correctAnswer: "Scouter"
+    correctAnswer: "Scouter",
+    image: "./assets/images/scouter.webp"
   },
   {
       //question 5
@@ -53,7 +57,8 @@ var quizQuestions = [
       "It gives the wearer extra powers",
       "It reveals the power level of an opponent",
       "It reveals the power level of the wearer"],
-    correctAnswer: "It reveals the power level of an opponent"
+    correctAnswer: "It reveals the power level of an opponent",
+    image: "./assets/images/scanning.webp"
   },
   {
       //question 6
@@ -64,7 +69,8 @@ var quizQuestions = [
       "Cho Cha",
       "Chi Cha",
       "Chi Chi"],
-    correctAnswer: "Chi Chi"
+    correctAnswer: "Chi Chi",
+    image: "./assets/images/chichi.webp"
   },
   {
       //question 7
@@ -75,7 +81,8 @@ var quizQuestions = [
       "Planet Earth",
       "King Kai's Planet",
       "Planet Namek"],
-    correctAnswer: "Planet Namek"
+    correctAnswer: "Planet Namek",
+    image: "./assets/images/gokussj.webp"
   },
   {
       //question 8
@@ -86,18 +93,20 @@ var quizQuestions = [
       "Planet Vegeta",
       "Planet Freiza",
       "Planet of the Z"],
-    correctAnswer: "Planet Vegeta"
+    correctAnswer: "Planet Vegeta",
+    image: "./assets/images/planetvegeta.webp"
   },
   {
       //question 9
     question:
-      "9. What does Videl want Gohan to teach her?",
+      "9. What power level does Vegeta freak over?",
     choices: [
-      "How to Fly",
-      "How to Teleport Instantly",
-      "How to perform a Kamehameha",
-      "How to turn into a super saiyan"],
-    correctAnswer: "How to Fly"
+      "5,000",
+      "12,000",
+      "9,000+",
+      "10"],
+    correctAnswer: "9,000+",
+    image: "./assets/images/vegetascouter.webp"
   },
   {
       //question 10
@@ -108,6 +117,7 @@ var quizQuestions = [
       "Boo",
       "Freiza",
       "Android 20"],
-    correctAnswer: "Boo"
+    correctAnswer: "Boo",
+    image: "./assets/images/boo.webp"
   },
   ];

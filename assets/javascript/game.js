@@ -24,7 +24,8 @@ function nextQuestion() {
 function timeUp() {
   clearInterval(timer);
   lost++;
-  nextQuestion();
+//   preloadImage("correctAnswer");
+  setTimeout(nextQuestion, 3 * 1000);
 }
 
 //start a 30 second timer for user to respond to each question
@@ -53,6 +54,7 @@ function loadQuestion() {
   $("#game").html(`
     <h4> ${question} </h4>
     ${loadChoices(choices)}
+    ${loadRemainingQuestions()}
     `);
 }
 
@@ -72,7 +74,7 @@ function loadChoices(choices) {
 // Either wrong and right answer selected, go to the next question
 
 $(document).on("click", ".choice", function() {
-  clearInterval(timer);
+//   clearInterval(timer);
   var selectedAnswer = $(this).attr("data-answer");
   var correctAnswer = quizQuestions[currentQuestion].correctAnswer;
   // check if working
@@ -81,11 +83,12 @@ $(document).on("click", ".choice", function() {
   if (correctAnswer === selectedAnswer) {
     console.log("yes");
     score++;
-    nextQuestion();
+    setTimeout(nextQuestion, 3 * 1000);
+
   } else {
     lost++;
     console.log("no");
-    nextQuestion();
+    setTimeout(nextQuestion, 3 * 1000);
   }
 });
 
@@ -99,14 +102,58 @@ function displayResults() {
 <button class="btn btn-primary button-color" id="reset"> Reset Game </button>
     `;
   $("#game").html(result);
+  reset();
 }
 
 function reset() {
-    $(document).on("click", "#reset", function(){
+  $(document).on("click", "#reset", function() {
+    console.log("reset clicked");
+    counter = 5; // var that holds our counter
+    timer = null; // holds the timer for the game
+    currentQuestion = 0;
+    score = 0; //score var
+    lost = 0; //lost var
 
-    })
+    loadQuestion();
+  });
 }
 
-loadQuestion();
+function loadRemainingQuestions() {
+  var remainingQuestion = quizQuestions.length - (currentQuestion + 1);
+  var totalQuestion = quizQuestions.length;
 
-//========================================================================
+  // returns remaining questions into the page with p tag
+  return `<br><br>  <p>Remaining Question: ${remainingQuestion}/${totalQuestion}</p>`;
+}
+
+// function loadImage(newImage) {
+//   var imageload = quizQuestions.image;
+
+//   for ( var i = 0; i < quizQuestions.image.length; i++){
+//       console.log("I am loading up correctly");
+//   }
+//   return loadImage[i];
+// }
+
+// randomImage(funImages);
+// // display gif for correct and wrong answer
+
+// function preloadImage(image) {
+//   var correctAnswer = quizQuestions[currentQuestion].correctAnswer;
+
+//   if (image === "win") {
+//     $("#game").html(`
+//     <p class="preload-image"> Congratulations, you picked the correct answer </p>
+//     <p class="preload-image"> The correct answer is <b>${correctAnswer}</b </p>
+//     <br>
+//     <img src="${quizQuestions.image}"/>
+// `);
+// }
+
+// starts the game when #start game is clicked
+$("#start").click(function() {
+    $("#start").remove();
+    $("#time").html(counter);
+    loadQuestion();
+
+});
