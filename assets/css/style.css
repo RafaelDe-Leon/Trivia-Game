@@ -14,17 +14,23 @@ h2, h4 {
     font-family: 'Red Hat Display', sans-serif;
 }
 
-/* .button-color {
+.button-color {
     background-color: #F85B1A;
     border: none;
     margin: 5px;
-} */
+}
+
+.button-color:hover {
+    background-color: rgb(206, 135, 105);
+}
+
 .choice {
     background-color: #F85B1A;
     border: none;
     padding: 10px;
     margin: 5px;
 }
+
 .choice:hover {
     background-color: rgb(206, 135, 105);
 }
