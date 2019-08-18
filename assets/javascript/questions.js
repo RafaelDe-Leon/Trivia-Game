@@ -121,3 +121,5 @@ var quizQuestions = [
     image: "./assets/images/boo.webp"
   },
   ];
+
+  var dbzImages = ["https://media3.giphy.com/media/YrFwwo41wLutq/200w.webp?cid=790b761136b6019c6452c028306c2d4f3a1cf5124d7a2536&rid=200w.webp", "https://media0.giphy.com/media/nvYrKpY6btGAo/200w.webp?cid=790b761136b6019c6452c028306c2d4f3a1cf5124d7a2536&rid=200w.webp", "./assets/images/vegetassj2.webp", "./assets/images/scouter.webp", "./assets/images/scanning.webp", "./assets/images/chichi.webp", "./assets/images/gokussj.webp", "./assets/images/planetvegeta.webp", "./assets/images/vegetascouter.webp", "./assets/images/boo.webp"];

@@ -9,7 +9,7 @@ var lost = 0; //lost var
 //========================================================================
 // if the timer is over go to the next question
 function nextQuestion() {
-    clearInterval(timer);
+  clearInterval(timer);
   var isQuestionOver = quizQuestions.length - 1 === currentQuestion;
 
   if (isQuestionOver) {
@@ -25,14 +25,15 @@ function nextQuestion() {
 function timeUp() {
   clearInterval(timer);
   lost++;
-  //   preloadImage("correctAnswer");
-  nextQuestion();
+  preloadImage("lost");
+  setTimeout(nextQuestion, 3 * 1000);
 }
 
 //start a 30 second timer for user to respond to each question
 
 function countDown() {
   counter--;
+
   $("#time").html("<h2> Time Left: " + counter + "</h2>");
 
   if (counter === 0) {
@@ -42,7 +43,6 @@ function countDown() {
 
 // Display the questions and choices to the browser
 function loadQuestion() {
-  clearInterval(timer);
   counter = 15;
   timer = setInterval(countDown, 1000);
 
@@ -56,6 +56,7 @@ function loadQuestion() {
     <h4> ${question} </h4>
     ${loadChoices(choices)}
     ${loadRemainingQuestions()}
+  
     `);
 }
 
@@ -75,7 +76,7 @@ function loadChoices(choices) {
 // Either wrong and right answer selected, go to the next question
 
 $(document).on("click", ".choice", function() {
-  //   clearInterval(timer);
+  clearInterval(timer);
   var selectedAnswer = $(this).attr("data-answer");
   var correctAnswer = quizQuestions[currentQuestion].correctAnswer;
   // check if working
@@ -84,11 +85,14 @@ $(document).on("click", ".choice", function() {
   if (correctAnswer === selectedAnswer) {
     console.log("yes");
     score++;
-    nextQuestion();
+    preloadImage("win");
+    setTimeout(nextQuestion, 3 * 1000);
   } else {
     lost++;
+    console.log("lost!!");
+    preloadImage("lost");
+    setTimeout(nextQuestion, 3 * 1000);
     console.log("no");
-    nextQuestion();
   }
 });
 
@@ -107,8 +111,9 @@ function displayResults() {
 
 function reset() {
   $(document).on("click", "#reset", function() {
+    clearInterval(timer);
     console.log("reset clicked");
-    counter = 5; // var that holds our counter
+    counter = 15; // var that holds our counter
     timer = null; // holds the timer for the game
     currentQuestion = 0;
     score = 0; //score var
@@ -126,29 +131,37 @@ function loadRemainingQuestions() {
   return `<br><br>  <p>Remaining Question: ${remainingQuestion}/${totalQuestion}</p>`;
 }
 
-// function loadImage(newImage) {
-//   var imageload = quizQuestions.image;
+// loop through the image array
 
-//   for ( var i = 0; i < quizQuestions.image.length; i++){
-//       console.log("I am loading up correctly");
-//   }
-//   return loadImage[i];
+// function randomImage(image) {
+//     var generateOne = dbzImages.length
+//     for (var i = 0; i < generateOne; i++) {
+//         console.log(dbzImages[i]);
+//         return dbzImages[i];
+//     }
 // }
-
-// randomImage(funImages);
 // // display gif for correct and wrong answer
 
-// function preloadImage(image) {
-//   var correctAnswer = quizQuestions[currentQuestion].correctAnswer;
+function preloadImage(status) {
+  var image = quizQuestions[currentQuestion].image; //
+  var correctAnswer = quizQuestions[currentQuestion].correctAnswer;
 
-//   if (image === "win") {
-//     $("#game").html(`
-//     <p class="preload-image"> Congratulations, you picked the correct answer </p>
-//     <p class="preload-image"> The correct answer is <b>${correctAnswer}</b </p>
-//     <br>
-//     <img src="${quizQuestions.image}"/>
-// `);
-// }
+  if (status === "win") {
+    $("#game").html(`
+    <p class="preload-image"> Congratulations, you picked the correct answer </p>
+    <p class="preload-image"> The correct answer is <b>${correctAnswer}</b </p>
+    <br>
+    <img src="${image}"/>
+`);
+  } else {
+    $("#game").html(`
+    <p class="preload-image"> The correct answer was <b>${correctAnswer}</b></p>
+    <p class="preload-image"> You lost! <p>
+    <img src="${image}"/>
+
+    `);
+  }
+}
 
 // starts the game when #start game is clicked
 $("#start").click(function() {
