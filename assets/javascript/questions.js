@@ -39,14 +39,14 @@ var quizQuestions = [
   {
       //question 4
     question:
-      "4. What's this device called?",
+      "4. Who does Captain Ginyu serve?",
     choices: [
-      "Radar",
-      "Bleeper",
-      "Scouter",
-      "Gauger"],
-    correctAnswer: "Scouter",
-    image: "./assets/images/scouter.webp"
+      "Cell",
+      "Freiza",
+      "Lord Slug",
+      "Turles"],
+    correctAnswer: "Freiza",
+    image: "https://media2.giphy.com/media/HrnibaUm1fZ96/200w.webp?cid=790b7611088351b350af90e5b90b5e55a3774550351872fc&rid=200w.webp"
   },
   {
       //question 5
