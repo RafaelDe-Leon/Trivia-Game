@@ -51,14 +51,14 @@ var quizQuestions = [
   {
       //question 5
     question:
-      "5. What does it do?",
+      "5. How is Krillin able to recover so quickly after second form Frieza impales him?",
     choices: [
-      "It robs the opponent of half their strength",
-      "It gives the wearer extra powers",
-      "It reveals the power level of an opponent",
-      "It reveals the power level of the wearer"],
-    correctAnswer: "It reveals the power level of an opponent",
-    image: "./assets/images/scanning.webp"
+      "He ate a Senzu Bean",
+      "Someone wished for his full health with the Dragon Balls",
+      "He was healed by Dende",
+      "He tricked Freiza, he was never impaled by him"],
+    correctAnswer: "He was healed by Dende",
+    image: "./assets/images/dende.gif"
   },
   {
       //question 6
