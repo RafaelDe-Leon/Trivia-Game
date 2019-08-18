@@ -46,7 +46,7 @@ var quizQuestions = [
       "Lord Slug",
       "Turles"],
     correctAnswer: "Freiza",
-    image: "https://media2.giphy.com/media/HrnibaUm1fZ96/200w.webp?cid=790b7611088351b350af90e5b90b5e55a3774550351872fc&rid=200w.webp"
+    image: "./assets/images/freiza.webp"
   },
   {
       //question 5
