@@ -49,6 +49,7 @@ function loadQuestion() {
   var question = quizQuestions[currentQuestion].question; //
   var choices = quizQuestions[currentQuestion].choices; //
 
+
   $("#time").html("<h2> Time Left: " + counter + "</h2>");
 
   //append to id game
@@ -158,6 +159,7 @@ function preloadImage(status) {
 // starts the game when #start game is clicked
 $("#start").click(function() {
   $("#start").remove();
+  $("#main-stage").addClass("container-background");
   $("#time").html(counter);
   loadQuestion();
 });
