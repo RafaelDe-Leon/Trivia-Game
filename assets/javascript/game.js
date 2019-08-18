@@ -131,15 +131,6 @@ function loadRemainingQuestions() {
   return `<br><br>  <p>Remaining Question: ${remainingQuestion}/${totalQuestion}</p>`;
 }
 
-// loop through the image array
-
-// function randomImage(image) {
-//     var generateOne = dbzImages.length
-//     for (var i = 0; i < generateOne; i++) {
-//         console.log(dbzImages[i]);
-//         return dbzImages[i];
-//     }
-// }
 // // display gif for correct and wrong answer
 
 function preloadImage(status) {
@@ -157,6 +148,7 @@ function preloadImage(status) {
     $("#game").html(`
     <p class="preload-image"> The correct answer was <b>${correctAnswer}</b></p>
     <p class="preload-image"> You lost! <p>
+    <br>
     <img src="${image}"/>
 
     `);
