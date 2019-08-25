@@ -1,6 +1,6 @@
 # Trivia-Game
 
-This game isa homework assigment for Columbia University Bootcamp.
+This game is a homework assigment for Columbia University Bootcamp.
 
 The Game is a Trivia Game! Test your knowledge!
 
